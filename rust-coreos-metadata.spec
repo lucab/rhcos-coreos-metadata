@@ -54,7 +54,7 @@ EOF\
 
 Name:           rust-%{crate}
 Version:        3.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A simple cloud-provider metadata agent
 
 License:        ASL 2.0
@@ -75,7 +75,6 @@ BuildRequires:  systemd
 
 %package -n %{crate}
 Summary:        %{summary}
-Requires:       openssl
 
 %description -n %{crate}
 %{summary}.
@@ -119,5 +118,8 @@ install -p -m 0644 -D -t %{buildroot}%{_unitdir} systemd/coreos-metadata.service
 %{_unitdir}/coreos-metadata.service
 
 %changelog
+* Wed Sep 05 2018 Luca Bruno <lucab@redhat.com> - 3.0.0-2
+- Drop a useless dependency on openssl utilities
+
 * Mon Aug 27 2018 Luca Bruno <lucab@redhat.com> - 3.0.0-1
 - Initial package
