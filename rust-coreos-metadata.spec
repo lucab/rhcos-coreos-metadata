@@ -53,8 +53,8 @@ EOF\
 %global cargo_registry ./vendor
 
 Name:           rust-%{crate}
-Version:        3.0.0
-Release:        2%{?dist}
+Version:        3.0.1
+Release:        1%{?dist}
 Summary:        A simple cloud-provider metadata agent
 
 License:        ASL 2.0
@@ -118,6 +118,9 @@ install -p -m 0644 -D -t %{buildroot}%{_unitdir} systemd/coreos-metadata.service
 %{_unitdir}/coreos-metadata.service
 
 %changelog
+* Thu Sep 18 2018 Luca Bruno <lucab@redhat.com> - 3.0.1-1
+- New upstream version
+
 * Wed Sep 05 2018 Luca Bruno <lucab@redhat.com> - 3.0.0-2
 - Drop a useless dependency on openssl utilities
 
