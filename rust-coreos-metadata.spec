@@ -53,14 +53,14 @@ EOF\
 %global cargo_registry ./vendor
 
 Name:           rust-%{crate}
-Version:        3.0.1
+Version:        3.0.2
 Release:        1%{?dist}
 Summary:        A simple cloud-provider metadata agent
 
 License:        ASL 2.0
 URL:            https://github.com/coreos/coreos-metadata
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
-Source1:        https://users.developer.core-os.net/lucab/rhcos/cargo-vendor/%{name}-%{version}-vendor.tar.xz
+Source1:        https://github.com/coreos/coreos-metadata/releases/download/v%{version}/%{crate}-%{version}-vendor.tar.gz
 
 ExclusiveArch:  %{rust_arches}
 
@@ -118,6 +118,10 @@ install -p -m 0644 -D -t %{buildroot}%{_unitdir} systemd/coreos-metadata.service
 %{_unitdir}/coreos-metadata.service
 
 %changelog
+* Mon Nov 05 2018 Luca Bruno <lucab@redhat.com> - 3.0.2-1
+- New upstream version
+- Use upstream vendor tarball
+
 * Thu Sep 18 2018 Luca Bruno <lucab@redhat.com> - 3.0.1-1
 - New upstream version
 
